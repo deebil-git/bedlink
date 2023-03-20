@@ -7,11 +7,12 @@ export const getAllOrders = (v) => {
     })
   };
   
-  export const getOrderByDeliveryReference = (v) => {
-    return getAllOrders(v).then((orders) => {
+  export const getOrderByDeliveryReference = (v) => {    
+    return getAllOrders(v.toUpperCase()).then((orders) => {
       global.orderData = orders;
       console.log(global.orderData)
-    return orders.find((order) => order['UNIQUE DELVIERY REFERENCE'] === v);
+      console.log(v.toUpperCase())
+    return orders.find((order) => order['UNIQUE DELVIERY REFERENCE'] === v.toUpperCase());
   });
 };
 
