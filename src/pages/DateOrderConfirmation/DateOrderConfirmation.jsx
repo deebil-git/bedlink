@@ -76,6 +76,7 @@ function DateOrderConfirmation() {
           <LoadingButton
             loading={isLoading}
             variant='outlined'
+            color='success'
             onClick={onSubmitDay}
             disabled={!value}
           >

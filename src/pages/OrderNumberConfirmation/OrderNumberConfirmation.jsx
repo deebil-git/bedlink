@@ -32,6 +32,7 @@ function OrderNumberConfirmation(props) {
       <CardContent style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Button
           variant='outlined'
+          color='success'
           onClick={() => {
             navigate('/date_order_confirmation', { state });
           }}

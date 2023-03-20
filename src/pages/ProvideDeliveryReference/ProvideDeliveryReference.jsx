@@ -49,8 +49,8 @@ function ProvideDeliveryReference(props) {
   return (
     <Card>
       <CardHeader title='Provide delivery reference' />
-      <CardContent>
-        <Typography sx={{ mb: 2 }} variant='body1'>
+      <CardContent sx={{pt:1}}>
+        <Typography sx={{ mb: 2 }}>
           Please enter your delivery reference to book your delivery slot:
         </Typography>
         <TextField
@@ -58,6 +58,7 @@ function ProvideDeliveryReference(props) {
           helperText={errorText}
           fullWidth
           variant='outlined'
+          color='success'
           size='small'
           value={value}
           onChange={(v) => handleChange(v)}
@@ -67,6 +68,7 @@ function ProvideDeliveryReference(props) {
         <LoadingButton
           loading={isLoading}
           variant='outlined'
+          color='success'
           onClick={onSubmit}
         >
           Continue
