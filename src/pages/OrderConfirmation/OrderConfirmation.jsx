@@ -8,13 +8,17 @@ function OrderConfirmation() {
   if (state['premium'] == 'Y'){
     return (
         <Card>
-          <CardHeader title='Your delivery date confirmed' />
+          <CardHeader title='Your Premium Delivery Date has been confirmed!' />
           <CardContent variant='outlined'>
             <Typography sx={{ mb: 2 }} variant='body1'>
-              Premium delivery date confirmed!
+            Premium Paid Dedicated Day Delivery is all booked in - Thank You!
+
             </Typography>
-            <Typography variant='body1'>
-              Our team will be in touch to collect payment for this Premium Paid Service and deliver your order at your convenience.<b>{state.date}</b>
+            <Typography sx={{ mb: 2 }} variant='body1'>
+            This will be delivered at your convenience on <b>{state.date}</b>
+            </Typography>
+            <Typography sx={{ mb: 2 }} variant='body1'>
+            Thank you for choosing BedLink
             </Typography>
           </CardContent>
         </Card>
