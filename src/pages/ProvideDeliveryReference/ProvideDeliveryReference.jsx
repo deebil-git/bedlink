@@ -35,8 +35,12 @@ function ProvideDeliveryReference(props) {
       getOrderByDeliveryReference(value.trim())
         .then((result) => {
           if (result) {
-            if(result['available_delivery_dates'] == null){
-              setErrorText('No dates available');
+            console.log(result['DeliveryLock'])
+            if(result['DeliveryLock'] == true){
+              setErrorText("We're sorry, but it appears that you have already booked a delivery for that date. If you need to make changes to your existing order, please contact our customer care team for assistance.");
+            }
+            else if (result['available_delivery_dates'] == null || Object.values(result['available_delivery_dates']).every(val => !val)) {
+              setErrorText("We're sorry, but there are no delivery schedules available for your location at this time. Please try again later, or contact our customer care team for further assistance.");
             }
             else{
               navigate('/order_number_confirmation', {
