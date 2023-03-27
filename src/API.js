@@ -28,10 +28,10 @@ export const getDeliveryAvailabilities = () => {
   });
 };
 
-export const updateDayDelivery = (deliveryReference, dayDelivery) => {
+export const updateDayDelivery = (deliveryReference, dayDelivery, premium) => {
   console.log(deliveryReference)
   console.log(dayDelivery)
-  const url = `https://script.google.com/macros/s/AKfycbwg3Zxw0wwjTjgRe0CJq5Xk8wehfmHEBnTcmvKaFiXgq4WBHuDwUk_vqqexULhhkO8aBg/exec?action=deliveryDateBooking&order_id=${deliveryReference}&date=${dayDelivery}`;
+  const url = `https://script.google.com/macros/s/AKfycbwg3Zxw0wwjTjgRe0CJq5Xk8wehfmHEBnTcmvKaFiXgq4WBHuDwUk_vqqexULhhkO8aBg/exec?action=deliveryDateBooking&order_id=${deliveryReference}&date=${dayDelivery}&premium=${premium}`;
 
   return fetch(url, { method: 'GET' })
     .then(response => {      

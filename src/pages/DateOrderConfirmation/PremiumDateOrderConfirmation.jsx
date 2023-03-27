@@ -34,7 +34,7 @@ function DateOrderConfirmation() {
   const onSubmitDay = () => {
     setIsLoading(true);
     const chosenDay = value.format('DD/MM/YY');
-    updateDayDelivery(state['Unique Ref'], chosenDay)
+    updateDayDelivery(state['Unique Ref'], chosenDay, 'Y')
       .then(() => {
         navigate('/order_confirmation', { state: { date: chosenDay , premium: 'Y' } });
       })
