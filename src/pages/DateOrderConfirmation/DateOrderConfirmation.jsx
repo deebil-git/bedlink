@@ -22,7 +22,7 @@ function DateOrderConfirmation() {
   const { state } = useLocation();
 
   useEffect(() => {
-    getDayAvailabilityForPostcode(state['POSTCODE PARSED']).then(
+    getDayAvailabilityForPostcode(state['Postcode']).then(
       (availabilities) => {
         setDeliveryAvailability(availabilities);
       }
@@ -32,7 +32,7 @@ function DateOrderConfirmation() {
   const onSubmitDay = () => {
     setIsLoading(true);
     const chosenDay = value.format('DD/MM/YY');
-    updateDayDelivery(state['UNIQUE DELVIERY REFERENCE'], chosenDay)
+    updateDayDelivery(state['Unique Ref'], chosenDay)
       .then(() => {
         navigate('/order_confirmation', { state: { date: chosenDay } });
       })

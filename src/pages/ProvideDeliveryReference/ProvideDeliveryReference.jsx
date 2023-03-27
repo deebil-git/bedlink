@@ -35,9 +35,15 @@ function ProvideDeliveryReference(props) {
       getOrderByDeliveryReference(value.trim())
         .then((result) => {
           if (result) {
-            navigate('/order_number_confirmation', {
-              state: result,
-            });
+            if(result['available_delivery_dates'] == null){
+              setErrorText('No dates available');
+            }
+            else{
+              navigate('/order_number_confirmation', {
+                state: result,
+              });
+            }
+            
           } else {
             setErrorText('Delivery Reference does not exist');
           }
