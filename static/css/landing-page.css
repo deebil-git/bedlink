@@ -162,3 +162,16 @@ footer {
 p.copyright {
     margin: 15px 0 0
 }
+
+.MuiFormHelperText-root {
+    font-size: 14px;
+    color: red;
+  }
+  
+  .MuiFormHelperText-root.error {
+    color: red;
+  }
+  
+  .MuiFormHelperText-root.success {
+    color: green;
+  }
