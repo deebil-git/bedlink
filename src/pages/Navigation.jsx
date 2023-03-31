@@ -10,7 +10,7 @@ function Navigation() {
   return (
     <Routes>
       <Route path='/' element={<ProvideDeliveryReference />} />
-      <Route path='/bedlink' element={<ProvideDeliveryReference />} />
+      {/* <Route path='/bedlink' element={<ProvideDeliveryReference />} /> */}
       <Route
         path='/order_number_confirmation'
         element={<OrderNumberConfirmation />}
