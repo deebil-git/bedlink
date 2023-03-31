@@ -10,7 +10,7 @@ export const getAllOrders = (v) => {
   export const getOrderByDeliveryReference = (v) => {    
     return getAllOrders(v.toUpperCase()).then((orders) => {
       global.orderData = orders;
-      console.log(global.orderData)
+      // console.log(global.orderData)
     return orders.find((order) => order['Unique Ref'] === v.toUpperCase());
   });
 };
@@ -29,8 +29,8 @@ export const getDeliveryAvailabilities = () => {
 };
 
 export const updateDayDelivery = (deliveryReference, dayDelivery, premium) => {
-  console.log(deliveryReference)
-  console.log(dayDelivery)
+  // console.log(deliveryReference)
+  // console.log(dayDelivery)
   const url = `https://script.google.com/macros/s/AKfycbwg3Zxw0wwjTjgRe0CJq5Xk8wehfmHEBnTcmvKaFiXgq4WBHuDwUk_vqqexULhhkO8aBg/exec?action=deliveryDateBooking&order_id=${deliveryReference}&date=${dayDelivery}&premium=${premium}`;
 
   return fetch(url, { method: 'GET' })
@@ -39,7 +39,7 @@ export const updateDayDelivery = (deliveryReference, dayDelivery, premium) => {
     })
     .then(orderData => {
       global.orderData = orderData;
-      console.log(orderData)
+      // console.log(orderData)
       return orderData;
     });
 };

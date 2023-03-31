@@ -6,9 +6,9 @@ import Box from '@mui/material/Box';
 
 function OrderConfirmation() {
   const { state } = useLocation();
-  console.log(state['premium'])
+  // console.log(state['premium'])
 
-  if (state['premium'] == 'Y'){
+  if (state['premium'] === 'Y'){
     return (
       <Box textAlign="center" marginTop={2}>
         <ReactSVG src={successSvg} />

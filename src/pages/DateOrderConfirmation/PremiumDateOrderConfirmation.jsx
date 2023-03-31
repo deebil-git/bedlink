@@ -7,10 +7,10 @@ import {
   CardHeader,
   CardContent,
   TextField,
-  Typography,
+  // Typography,
 } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { getDayAvailabilityForPostcode, updateDayDelivery } from '../../API';
+import { updateDayDelivery } from '../../API';
 import { LoadingButton } from '@mui/lab';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';

@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardContent,
   TextField,
-  Typography,
+  // Typography,
 } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { getDayAvailabilityForPostcode, updateDayDelivery } from '../../API';
@@ -26,7 +26,7 @@ function DateOrderConfirmation() {
   useEffect(() => {
     getDayAvailabilityForPostcode(state['Postcode']).then(
       (availabilities) => {
-        console.log(availabilities)
+        // console.log(availabilities)
         setDeliveryAvailability(availabilities);
       }
     );

@@ -6,24 +6,29 @@ import {
   Typography,
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getOrderByDeliveryReference } from '../../API';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import React, { useCallback } from 'react';
 
-function ProvideDeliveryReference(props) {
+function DirectBookingPage(props) {
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
   const [messageText, setMessageText] = useState('');
   const [value, setValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const validateIsEmpty = (v) => {
+  const { id } = useParams();
+
+  
+
+  const validateIsEmpty = useCallback((v) => {
     if (!v) {
       setErrorText('Field cannot be empty');
       return false;
     }
     return true;
-  };
+  }, [setErrorText]);
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -31,10 +36,11 @@ function ProvideDeliveryReference(props) {
     setMessageText('')
   };
 
-  const onSubmit = () => {
-    if (validateIsEmpty(value)) {
+  const onSubmit = useCallback(() => {
+    if (validateIsEmpty(id)) {
+      console.log(id)
       setIsLoading(true);
-      getOrderByDeliveryReference(value.trim())
+      getOrderByDeliveryReference(id.trim())
         .then((result) => {
           if (result) {
             // console.log(result['DeliveryLock'])
@@ -65,7 +71,12 @@ function ProvideDeliveryReference(props) {
         })
         .finally(() => setIsLoading(false));
     }
-  };
+  },[id, navigate, validateIsEmpty]);
+
+  useEffect(() => {
+    setValue(id);
+    onSubmit();
+  }, [id, onSubmit]);
 
   return (
     <Card>
@@ -112,4 +123,4 @@ function ProvideDeliveryReference(props) {
   );
 }
 
-export default ProvideDeliveryReference;
+export default DirectBookingPage;

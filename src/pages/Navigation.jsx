@@ -4,11 +4,13 @@ import PremiumDateOrderConfirmation from './DateOrderConfirmation/PremiumDateOrd
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import OrderNumberConfirmation from './OrderNumberConfirmation/OrderNumberConfirmation';
 import ProvideDeliveryReference from './ProvideDeliveryReference/ProvideDeliveryReference';
+import DirectBookingPage from './DirectBookingLink/DirectBookingLink';
 
 function Navigation() {
   return (
     <Routes>
       <Route path='/' element={<ProvideDeliveryReference />} />
+      <Route path='/bedlink' element={<ProvideDeliveryReference />} />
       <Route
         path='/order_number_confirmation'
         element={<OrderNumberConfirmation />}
@@ -22,6 +24,8 @@ function Navigation() {
         element={<PremiumDateOrderConfirmation />}
       />
       <Route path='/order_confirmation' element={<OrderConfirmation />} />
+      <Route path='/BookDeliveryDate/:id' element={<DirectBookingPage />} />
+      <Route path='/bedlink/BookDeliveryDate/:id' element={<DirectBookingPage />} />
     </Routes>
   );
 }
