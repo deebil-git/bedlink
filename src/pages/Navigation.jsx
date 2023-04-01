@@ -36,6 +36,7 @@ function Navigation() {
       />
       <Route path='/order_confirmation' element={<OrderConfirmation />} />
       <Route path='/BookDeliveryDate/:id' element={<DirectBookingPage />} />
+      {/* <Route path="*" element={<ProvideDeliveryReference />} /> */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
