@@ -8,6 +8,7 @@ import DirectBookingPage from './DirectBookingLink/DirectBookingLink';
 import { Link } from 'react-router-dom';
 
 function NotFound() {
+  console.log('error page')
   return (
     <div>
       <h1>404 - Page not found</h1>
