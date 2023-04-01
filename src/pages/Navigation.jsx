@@ -5,12 +5,22 @@ import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import OrderNumberConfirmation from './OrderNumberConfirmation/OrderNumberConfirmation';
 import ProvideDeliveryReference from './ProvideDeliveryReference/ProvideDeliveryReference';
 import DirectBookingPage from './DirectBookingLink/DirectBookingLink';
+import { Link } from 'react-router-dom';
+
+function NotFound() {
+  return (
+    <div>
+      <h1>404 - Page not found</h1>
+      <p>The page you are looking for does not exist.</p>
+      <Link to="/">Go back to the homepage</Link>
+    </div>
+  );
+}
 
 function Navigation() {
   return (
     <Routes>
       <Route path='/' element={<ProvideDeliveryReference />} />
-      {/* <Route path='/bedlink' element={<ProvideDeliveryReference />} /> */}
       <Route
         path='/order_number_confirmation'
         element={<OrderNumberConfirmation />}
@@ -25,7 +35,7 @@ function Navigation() {
       />
       <Route path='/order_confirmation' element={<OrderConfirmation />} />
       <Route path='/BookDeliveryDate/:id' element={<DirectBookingPage />} />
-      <Route path='/bedlink/BookDeliveryDate/:id' element={<DirectBookingPage />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
