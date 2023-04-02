@@ -2,10 +2,12 @@ import {
   Card,
   CardHeader,
   CardContent,
-  TextField,
   Typography,
+  TextField,
+  Button,
+  CircularProgress,
 } from '@mui/material';
-import LoadingButton from '@mui/lab/LoadingButton';
+import { styled } from '@mui/material/styles';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getOrderByDeliveryReference } from '../../API';
 import { useState, useEffect } from 'react';
@@ -35,6 +37,11 @@ function DirectBookingPage(props) {
     setErrorText('');
     setMessageText('')
   };
+
+  const LoadingSpinner = styled(CircularProgress)({
+    color: '#4caf50',
+    marginRight: '8px',
+  });
 
   const onSubmit = useCallback(() => {
     if (validateIsEmpty(id)) {
@@ -110,14 +117,15 @@ function DirectBookingPage(props) {
         )}
       </CardContent>
       <CardContent style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <LoadingButton
-          loading={isLoading}
-          variant='outlined'
-          color='success'
-          onClick={onSubmit}
-        >
-          Continue
-        </LoadingButton>
+      <Button
+            variant='outlined'
+            color='success'
+            disabled={isLoading}
+            onClick={onSubmit}
+          >
+            {isLoading && <LoadingSpinner size={40} />}
+            Loading Order Details
+          </Button>
       </CardContent>
     </Card>
   );
