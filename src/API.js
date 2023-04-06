@@ -52,6 +52,10 @@ export const getDayAvailabilityForPostcode = (postcode) => {
     //   result[row['Date (DD/MM/YY)']] = row[postcode] === 'TRUE';
     // });
     // console.log(global.orderData[0]['available_delivery_dates'])
-    return global.orderData[0]['available_delivery_dates'];
+    try{
+      return global.orderData[0]['available_delivery_dates'];
+    } catch (e) {
+      return {};
+    }
   });
 };

@@ -22,8 +22,6 @@ function DirectBookingPage(props) {
 
   const { id } = useParams();
 
-  
-
   const validateIsEmpty = useCallback((v) => {
     if (!v) {
       setErrorText('Field cannot be empty');
