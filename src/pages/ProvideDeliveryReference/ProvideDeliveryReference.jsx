@@ -50,7 +50,12 @@ function ProvideDeliveryReference(props) {
         .then((result) => {
           if (result) {
             // console.log(result['DeliveryLock'])
-            if (result['DeliveryLock']) {
+            if (result['STATUS'] === 'DELIVERED') {
+              navigate('/order_delivered', {
+                state: result,
+              });
+            }
+            else if (result['DeliveryLock']) {
               const sd = new Date(result['Customer Confirmed Delivery Date']);
               const df = sd.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
               const email = 'hello@bedlink.co.uk';

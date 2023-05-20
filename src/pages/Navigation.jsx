@@ -5,6 +5,7 @@ import OrderConfirmation from './OrderConfirmation/OrderConfirmation';
 import OrderNumberConfirmation from './OrderNumberConfirmation/OrderNumberConfirmation';
 import ProvideDeliveryReference from './ProvideDeliveryReference/ProvideDeliveryReference';
 import DirectBookingPage from './DirectBookingLink/DirectBookingLink';
+import OrderDelivered from './OrderConfirmation/OrderDelivered';
 import { Link } from 'react-router-dom';
 
 function NotFound() {
@@ -27,6 +28,10 @@ function Navigation() {
         element={<OrderNumberConfirmation />}
       />
       <Route
+        path='/order_delivered'
+        element={<OrderDelivered />}
+      />
+      <Route
         path='/date_order_confirmation'
         element={<DateOrderConfirmation />}
       />
@@ -36,6 +41,7 @@ function Navigation() {
       />
       <Route path='/order_confirmation' element={<OrderConfirmation />} />
       <Route path='/BookDeliveryDate/:id' element={<ProvideDeliveryReference />} />
+      <Route path='/DeliveryStatus/:id' element={<ProvideDeliveryReference />} />
       {/* <Route path='/BookDeliveryDate/:id' element={<DirectBookingPage />} /> */}
       {/* <Route path="*" element={<ProvideDeliveryReference />} /> */}
       <Route path="*" element={<NotFound />} />
