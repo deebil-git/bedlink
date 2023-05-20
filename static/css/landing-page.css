@@ -188,10 +188,6 @@ p.copyright {
   }
 }
 
-.Mui-selected {
-    background-color: violet !important;
-  }
-
-.Mui-selected-blue {
-    background-color: blue !important;
-  }
+/* .Mui-selected {
+    background-color: rgb(171, 166, 171) !important;
+  } */
